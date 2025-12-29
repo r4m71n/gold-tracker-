@@ -4,7 +4,7 @@ import '../models/currency_model.dart';
 import 'auth_service.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://127.0.0.1:8000/api';
+  static const String baseUrl = 'web-production-99bc.up.railway.app/api';
   final AuthService _authService = AuthService();
 
   Future<List<Currency>> getPrices() async {
