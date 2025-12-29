@@ -1,0 +1,23 @@
+workflows:
+  android-workflow:
+    name: Android Workflow
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Set up Flutter
+        script: |
+          cd flutter/gold_tracker_app
+          flutter packages pub get
+      - name: Build APK
+        script: |
+          cd flutter/gold_tracker_app
+          flutter build apk --release --split-per-abi
+    artifacts:
+      - flutter/gold_tracker_app/build/app/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - ramtin11111@gmail.com
