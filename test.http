@@ -1,0 +1,43 @@
+### 1. تست ثبت‌نام
+POST http://localhost:8000/api/register/
+Content-Type: application/json
+
+{
+  "username": "reza",
+  "password": "123456",
+  "email": "reza@test.com"
+}
+
+### 2. تست لاگین
+POST http://localhost:8000/api/login/
+Content-Type: application/json
+
+{
+  "username": "reza",
+  "password": "123456"
+}
+
+### 3. دیدن همه قیمت‌ها (بدون لاگین)
+GET http://localhost:8000/api/prices/
+
+### 4. دیدن Watchlist (نیاز به توکن داره - اول لاگین کن و توکن رو اینجا بذار)
+GET http://localhost:8000/api/watchlist/
+Authorization: Token 0da8d98ca4fa1d24eec76e47ca669b387f7684f5
+
+### 5. اضافه کردن به Watchlist (توکن لازمه)
+POST http://localhost:8000/api/watchlist/
+Content-Type: application/json
+Authorization: Token 0da8d98ca4fa1d24eec76e47ca669b387f7684f5
+
+{
+  "currency_id": 1
+}
+
+### 6. حذف از Watchlist
+DELETE http://localhost:8000/api/watchlist/
+Content-Type: application/json
+Authorization: Token 0da8d98ca4fa1d24eec76e47ca669b387f7684f5
+
+{
+  "currency_id": 1
+}
